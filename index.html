@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fabrice. Int — Étudiant IA</title>
+  <meta name="description" content="Portfolio de Fabrice. Int, étudiant en informatique et intelligence artificielle à Keyce Informatique (Douala, Cameroun), orienté Data Science et développement web.">
+  <meta name="author" content="Tagne Nembot Ivan Fabrice">
+
+  <!-- Open Graph : MODIFIER l'URL et l'image quand le site sera en ligne -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Fabrice. Int — Étudiant en IA | Futur Data Scientist">
+  <meta property="og:description" content="Portfolio : compétences, formation et projets d'un étudiant en IA orienté Data Science.">
+  <meta property="og:locale" content="fr_FR">
+  <!-- INSÉRER ICI L'URL DU SITE : <meta property="og:url" content="https://..."> -->
+  <!-- INSÉRER ICI L'IMAGE DE PARTAGE : <meta property="og:image" content="assets/images/og-image.jpg"> -->
+
+  <!-- Favicon (SVG intégré). Pour un favicon personnalisé : INSÉRER FAVICON ICI (assets/images/favicon.png) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23070b1d'/%3E%3Ctext x='32' y='43' font-size='30' font-family='Arial' font-weight='700' fill='%234d8bff' text-anchor='middle'%3EF.I%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#accueil">Aller au contenu</a>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="site-header" id="header">
+    <nav class="nav container" aria-label="Navigation principale">
+      <a href="#accueil" class="logo">Fabrice<span>.</span> Int</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#formation">Formation</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#objectifs">Objectifs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ ACCUEIL ============ -->
+    <section class="hero" id="accueil">
+      <canvas id="network" aria-hidden="true"></canvas>
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="hero-hello">Bonjour, je suis</p>
+          <h1>Fabrice<span class="accent">.</span> Int</h1>
+          <p class="hero-role">Étudiant en Intelligence Artificielle | Futur Data Scientist</p>
+          <p class="hero-intro">
+            Étudiant en informatique et intelligence artificielle à Keyce Informatique, actuellement en spécialité IA-BD,
+            je développe progressivement mes compétences en programmation, développement web, bases de données et
+            intelligence artificielle, avec pour objectif de poursuivre mon parcours vers la Data Science.
+          </p>
+          <div class="hero-actions">
+            <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+            <a href="#contact" class="btn btn-ghost">Me contacter</a>
+          </div>
+        </div>
+
+        <div class="hero-photo">
+          <div class="photo-ring">
+            <div class="photo-frame">
+              <!-- INSÉRER LA PHOTO PROFESSIONNELLE ICI
+                   1) Placez votre photo dans assets/images/ (ex. photo.jpg)
+                   2) Remplacez le bloc .photo-placeholder ci-dessous par :
+                      <img src="assets/images/photo.jpg" alt="Portrait de Fabrice. Int"> -->
+              <div class="photo-placeholder">
+                <svg viewBox="0 0 24 24" width="56" height="56" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <span><img src="assets/images/photo.jpg" alt="Portrait de Fabrice. Int"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#apropos" class="scroll-hint" aria-label="Défiler vers la suite"><span></span></a>
+    </section>
+
+    <!-- ============ À PROPOS ============ -->
+    <section class="section" id="apropos">
+      <div class="container">
+        <h2 class="section-title reveal">À propos de moi</h2>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>
+              Je suis <strong>Tagne Nembot Ivan Fabrice</strong>, étudiant à Keyce Informatique à Douala, au Cameroun.
+              Ma formation en informatique et intelligence artificielle m'a donné une première base en développement web,
+              en bases de données et en programmation Python.
+            </p>
+            <p>
+              Je suis aujourd'hui en spécialité IA-BD. Mon souhait est d'approfondir progressivement l'intelligence
+              artificielle, la Data Science et l'analyse des données, tout en continuant à apprendre et à construire
+              des projets concrets.
+            </p>
+            <blockquote class="goal">
+              <h3>Mon objectif</h3>
+              <p>Construire progressivement une solide expertise en intelligence artificielle et en Data Science, tout en développant ma capacité à concevoir des solutions informatiques concrètes.</p>
+            </blockquote>
+          </div>
+          <dl class="about-card glass reveal">
+            <div><dt>Nom complet</dt><dd>Tagne Nembot Ivan Fabrice</dd></div>
+            <div><dt>Localisation</dt><dd>Douala, Cameroun</dd></div>
+            <div><dt>Établissement</dt><dd>Keyce Informatique</dd></div>
+            <div><dt>Spécialité actuelle</dt><dd>IA-BD</dd></div>
+            <div><dt>Objectif</dt><dd>Data Scientist</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FORMATION ============ -->
+    <section class="section section-alt" id="formation">
+      <div class="container">
+        <h2 class="section-title reveal">Formation</h2>
+        <ol class="timeline">
+          <!-- Pour ajouter une étape : copier un bloc <li class="timeline-item"> et le placer à l'endroit voulu -->
+          <li class="timeline-item reveal">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div class="glass timeline-card">
+              <p class="timeline-date">Années à insérer ici</p>
+              <h3>Keyce Informatique</h3>
+              <p class="timeline-sub">Informatique et Intelligence Artificielle</p>
+              <ul class="meta-list">
+                <li><b>Niveau actuel :</b> Bac+2 / poursuite de licence en cours</li>
+                <li><b>Spécialité :</b> IA-BD</li>
+                <li><b>Objectif :</b> Orientation vers la Data Science</li>
+              </ul>
+            </div>
+          </li>
+          <li class="timeline-item reveal">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div class="glass timeline-card">
+              <p class="timeline-date">Année à insérer ici</p>
+              <h3>Baccalauréat C</h3>
+              <p class="timeline-sub">Diplôme obtenu : Baccalauréat série C</p>
+              <!-- INSÉRER ICI L'ÉTABLISSEMENT (lycée) SI VOUS SOUHAITEZ L'AFFICHER -->
+            </div>
+          </li>
+        </ol>
+
+        <h3 class="subtitle reveal">Certifications</h3>
+        <div class="cert-grid">
+          <!-- INSÉRER CERTIFICATION ICI — copier le bloc ci-dessous pour en ajouter d'autres -->
+          <article class="glass cert-card reveal">
+            <h4>Certification DEVELEPPEUR FULL STACK en cours</h4>
+            <p>2eme objectif en cours avant la fin de mon parcours academique</p>
+            <!-- INSÉRER ICI LE LIEN VERS LE CERTIFICAT : <a href="...">Voir le certificat</a> -->
+          </article>
+          <article class="glass cert-card reveal">
+            <h4>Certification en probabilite en cours</h4>
+            <p>ANNEE: D'ici fin d'annee 2027</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COMPÉTENCES ============ -->
+    <section class="section" id="competences">
+      <div class="container">
+        <h2 class="section-title reveal">Compétences</h2>
+        <p class="section-lead reveal">Des niveaux affichés avec honnêteté : je progresse chaque jour et j'indique où j'en suis réellement.</p>
+
+        <div class="skills-grid">
+          <!-- data-level : 1 = Débutant, 2 = Intermédiaire, 3 = Avancé (pour ajouter une compétence : copier un bloc) -->
+          <article class="glass skill reveal" data-level="1">
+            <div class="skill-head"><h3>Python</h3><span class="level">Débutant</span></div>
+            <div class="bar"><i></i></div>
+            <p>Programmation, premiers travaux liés aux données, apprentissage de la programmation pour l'IA. Outil : Jupyter Notebook.</p>
+          </article>
+          <article class="glass skill reveal" data-level="2">
+            <div class="skill-head"><h3>HTML</h3><span class="level">Intermédiaire</span></div>
+            <div class="bar"><i></i></div>
+          </article>
+          <article class="glass skill reveal" data-level="2">
+            <div class="skill-head"><h3>CSS</h3><span class="level">Intermédiaire</span></div>
+            <div class="bar"><i></i></div>
+          </article>
+          <article class="glass skill reveal" data-level="1">
+            <div class="skill-head"><h3>Bases de données</h3><span class="level">Débutant</span></div>
+            <div class="bar"><i></i></div>
+          </article>
+          <article class="glass skill reveal" data-level="1">
+            <div class="skill-head"><h3>SQL</h3><span class="level">Débutant</span></div>
+            <div class="bar"><i></i></div>
+          </article>
+          <article class="glass skill reveal" data-level="1">
+            <div class="skill-head"><h3>PHP</h3><span class="level">Débutant</span></div>
+            <div class="bar"><i></i></div>
+          </article>
+          <article class="glass skill reveal" data-level="1">
+            <div class="skill-head"><h3>Java</h3><span class="level">Débutant</span></div>
+            <div class="bar"><i></i></div>
+          </article>
+          <article class="glass skill reveal" data-level="1">
+            <div class="skill-head"><h3>C</h3><span class="level">Débutant</span></div>
+            <div class="bar"><i></i></div>
+          </article>
+          <article class="glass skill reveal" data-level="1">
+            <div class="skill-head"><h3>C++</h3><span class="level">Débutant</span></div>
+            <div class="bar"><i></i></div>
+          </article>
+          <article class="glass skill reveal" data-level="1">
+            <div class="skill-head"><h3>C#</h3><span class="level">Débutant</span></div>
+            <div class="bar"><i></i></div>
+          </article>
+          <!-- INSÉRER ICI UNE NOUVELLE COMPÉTENCE (copier un bloc <article class="glass skill reveal"> ci-dessus) -->
+          <article class="skill skill-empty reveal">
+            <h3>...</h3>
+          </article>
+        </div>
+        <p class="note reveal">JavaScript sert à développer ce portfolio lui-même ; je ne le présente pas comme une compétence professionnelle.</p>
+
+        <h3 class="subtitle reveal">Outils utilisés</h3>
+        <ul class="tools reveal">
+          <li class="glass">Jupyter Notebook</li>
+          <li class="glass">Visual Studio Code</li>
+          <li class="glass">Git</li>
+          <li class="glass">GitHub</li>
+          <!-- INSÉRER ICI UN NOUVEL OUTIL : <li class="glass">Nom de l'outil</li> -->
+        </ul>
+        <!-- MODIFIER LE LIEN GITHUB ICI si besoin -->
+        <a class="btn btn-ghost reveal" href="https://github.com/intfabrice" target="_blank" rel="noopener noreferrer">Voir mon GitHub <small>(intfabrice)</small></a>
+      </div>
+    </section>
+
+    <!-- ============ PROJETS ============ -->
+    <section class="section section-alt" id="projets">
+      <div class="container">
+        <h2 class="section-title reveal">Mes projets</h2>
+
+        <div class="projects-grid">
+          <!-- ===== PROJET 1 : FashionShop ===== -->
+          <article class="glass project project-main reveal">
+            <div class="project-media">
+              <!-- INSÉRER ICI LA CAPTURE PRINCIPALE DU PROJET
+                   Ex. : <img src="assets/projects/fashionshop-1.jpg" alt="Page d'accueil de FashionShop"> -->
+              <div class="shot shot-main"><img src="assets/images/capture1.png" alt="Page d'accueil de FashionShop"></div>
+              <div class="gallery">
+                <!-- INSÉRER ICI LES AUTRES CAPTURES (assets/projects/fashionshop-2.jpg, ...) -->
+                <div class="shot"><img src="assets/images/capturep11.png" alt="Page d'accueil de FashionShop"></div>
+                <div class="shot"><img src="assets/images/capturep12.png" alt="Page d'accueil de FashionShop"></div>
+                <div class="shot"><img src="assets/images/capturep13.png" alt="Page d'accueil de FashionShop"></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>FashionShop — Plateforme e-commerce de mode</h3>
+              <p>
+                Conception d'une plateforme web dédiée à la vente en ligne de vêtements, chaussures, accessoires et autres
+                articles de mode. Le projet vise à proposer une expérience d'achat moderne tout en intégrant la gestion des
+                produits, catégories, utilisateurs, commandes et informations liées à la vente.
+              </p>
+              <!-- MODIFIER LES TECHNOLOGIES selon ce qui est réellement utilisé dans le projet -->
+              <ul class="tags">
+                <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Node.js</li><li>Express</li><li>MySQL</li><li>React</li>
+              </ul>
+              <div class="project-actions">
+                <!-- INSÉRER ICI LE LIEN DU PROJET (remplacer href="#") -->
+                <a class="btn btn-primary" href="js/fashionshop_platform_preview.html" target="_blank">Voir le projet</a>
+                <!-- INSÉRER ICI LE LIEN GITHUB DU PROJET (remplacer href="#") -->
+                
+              </div>
+            </div>
+          </article>
+
+          <!-- ===== PROJETS 2, 3, 4 : MODÈLE À COPIER POUR EN AJOUTER D'AUTRES ===== -->
+          <article class="glass project reveal">
+            <div class="shot"><img src="assets/images/capturep1.png" alt="Page d'accueil de BATRA"></div>
+            <div class="project-body">
+              <h3>Projet 2 </h3>
+              <p><!-- AJOUTER ICI LA DESCRIPTION DU PROJET -->Site vitrine présentant une entreprise spécialisée dans la construction de logements et bâtiments industriels.</p>
+              <ul class="tags"><!-- AJOUTER ICI LES TECHNOLOGIES : <li>Techno</li> --><li>HTML-CSS-JavaScript-REACT.JS</li></ul>
+              <div class="project-actions">
+                <!-- AJOUTER ICI LE LIEN -->
+                <a class="btn btn-ghost" href="https://drive.google.com/file/d/1ejMleQxvhxKP8lGyhW3S6qDTfC0mfYnG/view?usp=sharing" target="_blank">Voir le projet</a>
+              
+              </div>
+            </div>
+          </article>
+
+          <article class="glass project reveal">
+            <div class="shot"><img src="assets/images/capture3.png" alt="Page d'accueil de MAISON CLARA"></div>
+            <div class="project-body">
+              <h3>Projet 3 </h3>
+              <p><!-- AJOUTER ICI LA DESCRIPTION DU PROJET -->Boutique en ligne moderne proposant des vêtements élégants et des accessoires tendance pour hommes et femmes..</p>
+              <ul class="tags"><!-- AJOUTER ICI LES TECHNOLOGIES --><li>HTML-CSS-JavaScript-REACT.JS-SQL-NODE.JS</li></ul>
+              <div class="project-actions">
+                <!-- AJOUTER ICI LE LIEN -->
+                <a class="btn btn-ghost" href="js/maison_elara_ecommerce_platform.html" target="_blank">Voir le projet</a>
+                
+              </div>
+            </div>
+          </article>
+
+          <article class="glass project reveal">
+            <div class="shot"><img src="assets/images/CAPTUREP4.png" alt="Page d'accueil de AURA"></div>
+            <div class="project-body">
+              <h3>Projet 4 </h3>
+              <p><!-- AJOUTER ICI LA DESCRIPTION DU PROJET -->offrir une expérience simple et rapide pour acheter des vêtements tendance.</p>
+              <ul class="tags"><!-- AJOUTER ICI LES TECHNOLOGIES --><li>HTML-CSS-JAVASCRIPT-SUPABASE-NODE.JS</li></ul>
+              <div class="project-actions">
+                <!-- AJOUTER ICI LE LIEN -->
+                <a class="btn btn-ghost" href="https://e-commerce-aura-omega.vercel.app/#" target="_blank">Voir le projet</a>
+              </div>
+            </div>
+          </article>
+          <!-- AJOUTER ICI UN NOUVEAU PROJET : copier un bloc <article class="glass project reveal"> ci-dessus -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OBJECTIFS ============ -->
+    <section class="section" id="objectifs">
+      <div class="container">
+        <h2 class="section-title reveal">Mon parcours et mes objectifs</h2>
+        <ol class="path">
+          <li class="glass path-step reveal"><h3>Aujourd'hui</h3><p>Étudiant en informatique et intelligence artificielle.</p></li>
+          <li class="glass path-step reveal"><h3>Actuellement</h3><p>Spécialisation IA-BD.</p></li>
+          <li class="glass path-step reveal"><h3>Prochaine étape</h3><p>Approfondissement de la programmation, des données et de l'intelligence artificielle.</p></li>
+          <li class="glass path-step path-goal reveal"><h3>Objectif</h3><p>Data Scientist</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ CV ============ -->
+    <section class="section section-alt" id="cv">
+      <div class="container">
+        <div class="cv-card glass reveal">
+          <div>
+            <h2>Mon CV</h2>
+            <p>Découvrez mon parcours, mes compétences, ma formation et mes projets.</p>
+          </div>
+          <!-- INSÉRER ICI LE FICHIER PDF DU CV : placez-le dans assets/cv/ sous le nom fabrice-int-cv.pdf -->
+          <a class="btn btn-primary" href="assets/cv/fabrice-int-cv.pdf" download>Télécharger mon CV</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 class="section-title reveal">Travaillons ensemble</h2>
+        <div class="contact-grid">
+          <ul class="contact-list reveal">
+            <li><span>Email</span><a href="mailto:int.fabrice@gmail.com">int.fabrice@gmail.com</a></li>
+            <li><span>Téléphone</span><a href="tel:+237687486959">687 486 959</a></li>
+            <li><span>Téléphone secondaire</span><a href="tel:+237622042646">622 042 646</a></li>
+            <li><span>Localisation</span>Douala, Cameroun</li>
+            <!-- INSÉRER LIEN LINKEDIN ICI : <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/...">Mon profil</a></li> -->
+            <li><span>LinkedIn</span>Lien LinkedIn en cours</li>
+          </ul>
+
+          <!-- Le formulaire n'envoie pas d'email lui-même : il ouvre le logiciel de messagerie (mailto).
+               Pour un vrai envoi, voir FORM_ENDPOINT dans js/script.js -->
+          <form class="contact-form glass reveal" id="contactForm" novalidate>
+            <label>Nom<input type="text" name="nom" autocomplete="name" required></label>
+            <label>Email<input type="email" name="email" autocomplete="email" required></label>
+            <label>Sujet<input type="text" name="sujet" required></label>
+            <label>Message<textarea name="message" rows="5" required></textarea></label>
+            <button class="btn btn-primary" type="submit">Envoyer</button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="logo">Fabrice<span>.</span> Int</p>
+        <p class="footer-tag">Étudiant en Intelligence Artificielle | Futur Data Scientist</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://github.com/intfabrice" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="mailto:int.fabrice@gmail.com">int.fabrice@gmail.com</a></li>
+        <li><a href="tel:+237687486959">687 486 959</a></li>
+        <!-- INSÉRER LIEN LINKEDIN ICI -->
+        <li><a href="#" data-placeholder>LinkedIn (à insérer ici)</a></li>
+        <!-- INSÉRER ICI UN AUTRE RÉSEAU SOCIAL (X, Instagram, ...) -->
+      </ul>
+    </div>
+    <p class="copyright">© <span id="year">2026</span> Fabrice. Int — Tous droits réservés.</p>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Retour en haut" hidden>↑</button>
+  <script src="js/script.js"></script>
+</body>
+</html>

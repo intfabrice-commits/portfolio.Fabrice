@@ -1,0 +1,368 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --fs-dark:#0d0d1a;--fs-navy:#1a1a2e;--fs-red:#e94560;--fs-gold:#c9a84c;
+  --fs-light:#f8f7f4;--fs-gray:#6b7280;--fs-border:#e5e7eb;
+  --fs-card:var(--color-background-primary);
+}
+.fs-wrap{font-family:'Inter',sans-serif;background:var(--color-background-tertiary);width:100%;overflow:hidden}
+.fs-nav{background:var(--fs-navy);color:#fff;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
+.fs-logo{font-family:'Playfair Display',serif;font-size:22px;letter-spacing:3px;color:#fff}
+.fs-logo span{color:var(--fs-red)}
+.fs-nav-links{display:flex;gap:20px;font-size:13px;font-weight:400;opacity:.85}
+.fs-nav-actions{display:flex;gap:14px;align-items:center}
+.fs-nav-actions i{font-size:18px;cursor:pointer;opacity:.9}
+.fs-cart-badge{position:relative}
+.fs-cart-badge::after{content:'3';position:absolute;top:-6px;right:-6px;background:var(--fs-red);color:#fff;border-radius:50%;width:16px;height:16px;font-size:10px;display:flex;align-items:center;justify-content:center;font-weight:600}
+.fs-hero{background:linear-gradient(135deg,var(--fs-navy) 0%,#16213e 50%,#0f3460 100%);color:#fff;padding:48px 24px 40px;position:relative;overflow:hidden}
+.fs-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:rgba(233,69,96,.08);pointer-events:none}
+.fs-hero-badge{display:inline-block;background:rgba(233,69,96,.15);border:1px solid rgba(233,69,96,.4);color:var(--fs-red);font-size:11px;font-weight:600;letter-spacing:2px;padding:5px 14px;border-radius:20px;margin-bottom:16px;text-transform:uppercase}
+.fs-hero h1{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;line-height:1.2;margin-bottom:10px}
+.fs-hero h1 span{color:var(--fs-red)}
+.fs-hero p{font-size:14px;opacity:.7;margin-bottom:24px;max-width:380px}
+.fs-hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.fs-btn{padding:10px 22px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;border:none;transition:.2s}
+.fs-btn-primary{background:var(--fs-red);color:#fff}
+.fs-btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
+.fs-hero-stats{display:flex;gap:24px;margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}
+.fs-stat{text-align:center}
+.fs-stat-num{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff}
+.fs-stat-label{font-size:11px;opacity:.5;letter-spacing:1px;text-transform:uppercase}
+.fs-section{padding:28px 24px}
+.fs-section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.fs-section-title{font-family:'Playfair Display',serif;font-size:20px;color:var(--color-text-primary)}
+.fs-section-link{font-size:12px;color:var(--fs-red);font-weight:500;cursor:pointer}
+.fs-cats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.fs-cat{background:var(--fs-card);border:0.5px solid var(--color-border-tertiary);border-radius:10px;padding:16px 10px;text-align:center;cursor:pointer;transition:.2s}
+.fs-cat:hover{border-color:var(--fs-red);transform:translateY(-2px)}
+.fs-cat-icon{font-size:24px;margin-bottom:8px;color:var(--fs-navy)}
+.fs-cat-name{font-size:12px;font-weight:500;color:var(--color-text-primary)}
+.fs-cat-count{font-size:11px;color:var(--fs-gray)}
+.fs-products{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.fs-product{background:var(--fs-card);border:0.5px solid var(--color-border-tertiary);border-radius:10px;overflow:hidden;cursor:pointer;transition:.2s}
+.fs-product:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
+.fs-product-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:52px;position:relative}
+.fs-product-img.bg1{background:linear-gradient(135deg,#fce4ec,#f8bbd0)}
+.fs-product-img.bg2{background:linear-gradient(135deg,#e8eaf6,#c5cae9)}
+.fs-product-img.bg3{background:linear-gradient(135deg,#e0f7fa,#b2ebf2)}
+.fs-product-img.bg4{background:linear-gradient(135deg,#fff8e1,#ffe082)}
+.fs-prod-badge{position:absolute;top:8px;left:8px;font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;letter-spacing:.5px}
+.fs-prod-badge.new{background:#1a1a2e;color:#fff}
+.fs-prod-badge.sale{background:var(--fs-red);color:#fff}
+.fs-prod-fav{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-size:14px;color:#999}
+.fs-prod-fav.active{color:var(--fs-red)}
+.fs-product-body{padding:12px}
+.fs-prod-name{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.fs-prod-brand{font-size:11px;color:var(--fs-gray);margin-bottom:8px}
+.fs-prod-price{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.fs-prod-price-main{font-size:15px;font-weight:600;color:var(--fs-red)}
+.fs-prod-price-old{font-size:12px;color:var(--fs-gray);text-decoration:line-through}
+.fs-prod-stars{display:flex;align-items:center;gap:4px;margin-bottom:10px}
+.fs-prod-stars span{color:#f59e0b;font-size:12px}
+.fs-prod-stars small{font-size:11px;color:var(--fs-gray)}
+.fs-prod-btn{width:100%;padding:8px;background:var(--fs-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:500;cursor:pointer;transition:.2s}
+.fs-prod-btn:hover{background:var(--fs-red)}
+.fs-promo{background:linear-gradient(135deg,var(--fs-red),#c0392b);border-radius:12px;padding:20px;color:#fff;margin:0 24px 24px;display:flex;align-items:center;justify-content:space-between}
+.fs-promo-text h3{font-family:'Playfair Display',serif;font-size:18px;margin-bottom:4px}
+.fs-promo-text p{font-size:12px;opacity:.8}
+.fs-promo-timer{text-align:center}
+.fs-timer{display:flex;gap:6px}
+.fs-timer-box{background:rgba(255,255,255,.2);border-radius:6px;padding:6px 10px;text-align:center;min-width:40px}
+.fs-timer-num{font-size:18px;font-weight:700;display:block}
+.fs-timer-lbl{font-size:9px;opacity:.7;text-transform:uppercase}
+.fs-order-card{background:var(--fs-card);border:0.5px solid var(--color-border-tertiary);border-radius:10px;padding:14px;margin-bottom:10px}
+.fs-order-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.fs-order-num{font-size:13px;font-weight:600;color:var(--color-text-primary)}
+.fs-order-date{font-size:11px;color:var(--fs-gray)}
+.fs-order-status{font-size:11px;padding:3px 10px;border-radius:12px;font-weight:500}
+.fs-status-livree{background:#d1fae5;color:#065f46}
+.fs-status-expediee{background:#dbeafe;color:#1e40af}
+.fs-status-attente{background:#fef9c3;color:#854d0e}
+.fs-order-items{font-size:12px;color:var(--fs-gray);margin-bottom:8px}
+.fs-order-total{font-size:14px;font-weight:600;color:var(--color-text-primary)}
+.fs-tabs{display:flex;border-bottom:1px solid var(--color-border-tertiary);margin-bottom:20px}
+.fs-tab{padding:10px 16px;font-size:13px;font-weight:500;cursor:pointer;border-bottom:2px solid transparent;color:var(--fs-gray);transition:.2s}
+.fs-tab.active{color:var(--fs-red);border-bottom-color:var(--fs-red)}
+.fs-admin-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:20px}
+.fs-kpi{background:var(--fs-card);border:0.5px solid var(--color-border-tertiary);border-radius:10px;padding:14px}
+.fs-kpi-label{font-size:11px;color:var(--fs-gray);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.fs-kpi-value{font-size:22px;font-weight:700;color:var(--color-text-primary);font-family:'Playfair Display',serif}
+.fs-kpi-delta{font-size:11px;color:#10b981;margin-top:4px}
+.fs-kpi-delta.neg{color:#ef4444}
+.fs-chart{background:var(--fs-card);border:0.5px solid var(--color-border-tertiary);border-radius:10px;padding:16px;margin-bottom:16px}
+.fs-chart-title{font-size:13px;font-weight:600;color:var(--color-text-primary);margin-bottom:14px}
+.fs-bars{display:flex;align-items:flex-end;gap:6px;height:100px}
+.fs-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
+.fs-bar{width:100%;border-radius:3px 3px 0 0;background:var(--fs-navy);transition:.5s;min-height:4px}
+.fs-bar.highlight{background:var(--fs-red)}
+.fs-bar-label{font-size:9px;color:var(--fs-gray)}
+.fs-bottom-nav{background:var(--fs-card);border-top:0.5px solid var(--color-border-tertiary);display:flex;justify-content:space-around;padding:10px 0;position:sticky;bottom:0}
+.fs-bottom-btn{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10px;color:var(--fs-gray);cursor:pointer;padding:4px 12px;border-radius:8px;transition:.2s}
+.fs-bottom-btn.active{color:var(--fs-red)}
+.fs-search-bar{background:var(--fs-card);border:0.5px solid var(--color-border-tertiary);border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:10px;margin:0 24px 20px}
+.fs-search-bar input{border:none;background:transparent;font-size:13px;flex:1;outline:none;color:var(--color-text-primary)}
+.fs-view-label{font-size:11px;color:var(--fs-gray);text-align:center;padding:6px;font-style:italic}
+.fs-filter-chips{display:flex;gap:8px;overflow-x:auto;padding:0 24px 16px;scrollbar-width:none}
+.fs-chip{flex-shrink:0;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:500;border:0.5px solid var(--color-border-tertiary);background:var(--fs-card);cursor:pointer;color:var(--color-text-secondary)}
+.fs-chip.active{background:var(--fs-navy);color:#fff;border-color:var(--fs-navy)}
+</style>
+
+<h2 class="sr-only">Aperçu interactif de la plateforme FashionShop — navigation entre les vues Accueil, Boutique, Commandes et Admin</h2>
+
+<div class="fs-wrap">
+  <nav class="fs-nav">
+    <div class="fs-logo">FASHION<span>SHOP</span></div>
+    <div class="fs-nav-links">
+      <span>Femme</span><span>Homme</span><span>Accessoires</span><span>Soldes</span>
+    </div>
+    <div class="fs-nav-actions">
+      <i class="ti ti-search" aria-hidden="true"></i>
+      <i class="ti ti-heart" aria-hidden="true"></i>
+      <i class="ti ti-shopping-cart fs-cart-badge" aria-hidden="true"></i>
+      <i class="ti ti-user" aria-hidden="true"></i>
+    </div>
+  </nav>
+
+  <div class="fs-tabs" style="padding:0 24px">
+    <div class="fs-tab active" onclick="showView('home',this)">Accueil</div>
+    <div class="fs-tab" onclick="showView('shop',this)">Boutique</div>
+    <div class="fs-tab" onclick="showView('orders',this)">Mes Commandes</div>
+    <div class="fs-tab" onclick="showView('admin',this)">Dashboard Admin</div>
+  </div>
+
+  <div id="view-home">
+    <div class="fs-hero">
+      <div class="fs-hero-badge">✦ Nouvelle Collection 2025</div>
+      <h1>La Mode<br>Vous <span>Appartient</span></h1>
+      <p>Découvrez des milliers de vêtements et accessoires tendance livrés partout en Afrique centrale.</p>
+      <div class="fs-hero-btns">
+        <button class="fs-btn fs-btn-primary">Découvrir la collection</button>
+        <button class="fs-btn fs-btn-outline">Nouveautés</button>
+      </div>
+      <div class="fs-hero-stats">
+        <div class="fs-stat"><div class="fs-stat-num">12k+</div><div class="fs-stat-label">Produits</div></div>
+        <div class="fs-stat"><div class="fs-stat-num">8k+</div><div class="fs-stat-label">Clients</div></div>
+        <div class="fs-stat"><div class="fs-stat-num">50+</div><div class="fs-stat-label">Marques</div></div>
+        <div class="fs-stat"><div class="fs-stat-num">4.8★</div><div class="fs-stat-label">Note</div></div>
+      </div>
+    </div>
+
+    <div class="fs-section">
+      <div class="fs-section-header">
+        <div class="fs-section-title">Catégories</div>
+        <div class="fs-section-link">Voir tout →</div>
+      </div>
+      <div class="fs-cats">
+        <div class="fs-cat"><div class="fs-cat-icon">👗</div><div class="fs-cat-name">Femme</div><div class="fs-cat-count">4 200 articles</div></div>
+        <div class="fs-cat"><div class="fs-cat-icon">👔</div><div class="fs-cat-name">Homme</div><div class="fs-cat-count">3 100 articles</div></div>
+        <div class="fs-cat"><div class="fs-cat-icon">👜</div><div class="fs-cat-name">Accessoires</div><div class="fs-cat-count">1 800 articles</div></div>
+        <div class="fs-cat"><div class="fs-cat-icon">👟</div><div class="fs-cat-name">Chaussures</div><div class="fs-cat-count">2 500 articles</div></div>
+      </div>
+    </div>
+
+    <div class="fs-promo">
+      <div class="fs-promo-text">
+        <h3>🔥 Flash Sale</h3>
+        <p>Jusqu'à -60% sur les robes été</p>
+        <small style="opacity:.7;font-size:11px">Offre limitée</small>
+      </div>
+      <div class="fs-promo-timer">
+        <div class="fs-timer">
+          <div class="fs-timer-box"><span class="fs-timer-num" id="th">04</span><span class="fs-timer-lbl">h</span></div>
+          <div class="fs-timer-box"><span class="fs-timer-num" id="tm">37</span><span class="fs-timer-lbl">m</span></div>
+          <div class="fs-timer-box"><span class="fs-timer-num" id="ts">22</span><span class="fs-timer-lbl">s</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fs-section" style="padding-top:0">
+      <div class="fs-section-header">
+        <div class="fs-section-title">Nouveaux Arrivages</div>
+        <div class="fs-section-link">Voir tout →</div>
+      </div>
+      <div class="fs-products">
+        <div class="fs-product">
+          <div class="fs-product-img bg1">👗<span class="fs-prod-badge new">NOUVEAU</span><span class="fs-prod-fav active">♥</span></div>
+          <div class="fs-product-body">
+            <div class="fs-prod-name">Robe Fleurie Élégante</div>
+            <div class="fs-prod-brand">Zara Collection</div>
+            <div class="fs-prod-stars"><span>★★★★★</span><small>(128)</small></div>
+            <div class="fs-prod-price"><span class="fs-prod-price-main">18 500 XAF</span><span class="fs-prod-price-old">24 000 XAF</span></div>
+            <button class="fs-prod-btn">+ Ajouter au panier</button>
+          </div>
+        </div>
+        <div class="fs-product">
+          <div class="fs-product-img bg2">👔<span class="fs-prod-badge sale">-30%</span><span class="fs-prod-fav">♡</span></div>
+          <div class="fs-product-body">
+            <div class="fs-prod-name">Chemise Oxford Slim</div>
+            <div class="fs-prod-brand">Hugo Boss</div>
+            <div class="fs-prod-stars"><span>★★★★☆</span><small>(87)</small></div>
+            <div class="fs-prod-price"><span class="fs-prod-price-main">14 000 XAF</span><span class="fs-prod-price-old">20 000 XAF</span></div>
+            <button class="fs-prod-btn">+ Ajouter au panier</button>
+          </div>
+        </div>
+        <div class="fs-product">
+          <div class="fs-product-img bg3">👜<span class="fs-prod-fav">♡</span></div>
+          <div class="fs-product-body">
+            <div class="fs-prod-name">Sac à Main Cuir</div>
+            <div class="fs-prod-brand">Coach</div>
+            <div class="fs-prod-stars"><span>★★★★★</span><small>(203)</small></div>
+            <div class="fs-prod-price"><span class="fs-prod-price-main">32 000 XAF</span></div>
+            <button class="fs-prod-btn">+ Ajouter au panier</button>
+          </div>
+        </div>
+        <div class="fs-product">
+          <div class="fs-product-img bg4">👟<span class="fs-prod-badge new">NOUVEAU</span><span class="fs-prod-fav active">♥</span></div>
+          <div class="fs-product-body">
+            <div class="fs-prod-name">Sneakers Running Pro</div>
+            <div class="fs-prod-brand">Nike Air</div>
+            <div class="fs-prod-stars"><span>★★★★★</span><small>(341)</small></div>
+            <div class="fs-prod-price"><span class="fs-prod-price-main">45 000 XAF</span></div>
+            <button class="fs-prod-btn">+ Ajouter au panier</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="view-shop" style="display:none">
+    <div class="fs-search-bar">
+      <i class="ti ti-search" style="color:var(--fs-gray)" aria-hidden="true"></i>
+      <input type="text" placeholder="Rechercher robes, chaussures, sacs...">
+      <i class="ti ti-adjustments-horizontal" style="color:var(--fs-red)" aria-hidden="true"></i>
+    </div>
+    <div class="fs-filter-chips">
+      <div class="fs-chip active">Tous</div>
+      <div class="fs-chip">Femme</div>
+      <div class="fs-chip">Homme</div>
+      <div class="fs-chip">Robes</div>
+      <div class="fs-chip">Chemises</div>
+      <div class="fs-chip">Accessoires</div>
+      <div class="fs-chip">Chaussures</div>
+      <div class="fs-chip">Soldes</div>
+    </div>
+    <div style="padding:0 24px;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <span style="font-size:12px;color:var(--fs-gray)"><b style="color:var(--color-text-primary)">1 247</b> articles trouvés</span>
+      <select style="font-size:12px;border:0.5px solid var(--color-border-tertiary);border-radius:6px;padding:5px 10px;background:var(--fs-card);color:var(--color-text-primary)">
+        <option>Nouveautés</option><option>Prix ↑</option><option>Prix ↓</option><option>Meilleures notes</option>
+      </select>
+    </div>
+    <div class="fs-products" style="padding:0 24px 24px">
+      <div class="fs-product"><div class="fs-product-img bg1">👗<span class="fs-prod-badge sale">-25%</span><span class="fs-prod-fav">♡</span></div><div class="fs-product-body"><div class="fs-prod-name">Robe Midi Bohème</div><div class="fs-prod-brand">H&M</div><div class="fs-prod-stars"><span>★★★★☆</span><small>(64)</small></div><div class="fs-prod-price"><span class="fs-prod-price-main">12 750 XAF</span><span class="fs-prod-price-old">17 000 XAF</span></div><button class="fs-prod-btn">+ Ajouter</button></div></div>
+      <div class="fs-product"><div class="fs-product-img bg4">👟<span class="fs-prod-fav active">♥</span></div><div class="fs-product-body"><div class="fs-prod-name">Basket Cuir Blanc</div><div class="fs-prod-brand">Adidas</div><div class="fs-prod-stars"><span>★★★★★</span><small>(189)</small></div><div class="fs-prod-price"><span class="fs-prod-price-main">38 000 XAF</span></div><button class="fs-prod-btn">+ Ajouter</button></div></div>
+      <div class="fs-product"><div class="fs-product-img bg2">🧥<span class="fs-prod-badge new">NOUVEAU</span><span class="fs-prod-fav">♡</span></div><div class="fs-product-body"><div class="fs-prod-name">Veste Blazer Croisé</div><div class="fs-prod-brand">Massimo</div><div class="fs-prod-stars"><span>★★★★☆</span><small>(42)</small></div><div class="fs-prod-price"><span class="fs-prod-price-main">29 500 XAF</span></div><button class="fs-prod-btn">+ Ajouter</button></div></div>
+      <div class="fs-product"><div class="fs-product-img bg3">💍<span class="fs-prod-fav">♡</span></div><div class="fs-product-body"><div class="fs-prod-name">Collier Or Minimaliste</div><div class="fs-prod-brand">Pandora</div><div class="fs-prod-stars"><span>★★★★★</span><small>(276)</small></div><div class="fs-prod-price"><span class="fs-prod-price-main">8 500 XAF</span></div><button class="fs-prod-btn">+ Ajouter</button></div></div>
+    </div>
+    <div class="fs-view-label">↑ Filtres avancés : catégorie, taille, couleur, prix, marque, disponibilité</div>
+  </div>
+
+  <div id="view-orders" style="display:none">
+    <div class="fs-section">
+      <div class="fs-section-header">
+        <div class="fs-section-title">Mes Commandes</div>
+        <span style="font-size:12px;color:var(--fs-gray)">6 commandes</span>
+      </div>
+      <div class="fs-order-card">
+        <div class="fs-order-header">
+          <div><div class="fs-order-num">#FS-2025-00142</div><div class="fs-order-date">15 mai 2025</div></div>
+          <span class="fs-order-status fs-status-livree">✓ Livrée</span>
+        </div>
+        <div class="fs-order-items">Robe Fleurie Élégante × 1 · Sac à Main Cuir × 1</div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="fs-order-total">50 500 XAF</div>
+          <button style="font-size:11px;padding:5px 12px;border:0.5px solid var(--color-border-tertiary);border-radius:6px;cursor:pointer;background:transparent;color:var(--color-text-primary)"><i class="ti ti-file-invoice" aria-hidden="true"></i> Facture</button>
+        </div>
+      </div>
+      <div class="fs-order-card">
+        <div class="fs-order-header">
+          <div><div class="fs-order-num">#FS-2025-00138</div><div class="fs-order-date">8 mai 2025</div></div>
+          <span class="fs-order-status fs-status-expediee">🚚 Expédiée</span>
+        </div>
+        <div class="fs-order-items">Sneakers Running Pro × 1 · Chaussettes Sport × 3</div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="fs-order-total">46 500 XAF</div>
+          <button style="font-size:11px;padding:5px 12px;border:0.5px solid var(--color-border-tertiary);border-radius:6px;cursor:pointer;background:transparent;color:var(--color-text-primary)">Suivre →</button>
+        </div>
+      </div>
+      <div class="fs-order-card">
+        <div class="fs-order-header">
+          <div><div class="fs-order-num">#FS-2025-00131</div><div class="fs-order-date">1 mai 2025</div></div>
+          <span class="fs-order-status fs-status-attente">⏳ En préparation</span>
+        </div>
+        <div class="fs-order-items">Chemise Oxford Slim × 2 · Ceinture Cuir × 1</div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="fs-order-total">31 500 XAF</div>
+          <button style="font-size:11px;padding:5px 12px;border:0.5px solid #fca5a5;border-radius:6px;cursor:pointer;background:transparent;color:#ef4444">Annuler</button>
+        </div>
+      </div>
+      <div class="fs-view-label">Paiements acceptés : Carte · MTN Mobile Money · Orange Money · À la livraison</div>
+    </div>
+  </div>
+
+  <div id="view-admin" style="display:none">
+    <div class="fs-section">
+      <div class="fs-section-header">
+        <div class="fs-section-title">Dashboard Admin</div>
+        <span style="font-size:12px;color:var(--fs-gray)">Mai 2025</span>
+      </div>
+      <div class="fs-admin-stats">
+        <div class="fs-kpi"><div class="fs-kpi-label">Revenus du mois</div><div class="fs-kpi-value">4,2M</div><div class="fs-kpi-delta">↑ +18% vs avril</div></div>
+        <div class="fs-kpi"><div class="fs-kpi-label">Commandes</div><div class="fs-kpi-value">342</div><div class="fs-kpi-delta">↑ +12% vs avril</div></div>
+        <div class="fs-kpi"><div class="fs-kpi-label">Nouveaux clients</div><div class="fs-kpi-value">128</div><div class="fs-kpi-delta">↑ +8% vs avril</div></div>
+        <div class="fs-kpi"><div class="fs-kpi-label">Taux conversion</div><div class="fs-kpi-value">3.4%</div><div class="fs-kpi-delta neg">↓ -0.2pts</div></div>
+      </div>
+      <div class="fs-chart">
+        <div class="fs-chart-title">Ventes mensuelles — XAF (milliers)</div>
+        <div class="fs-bars" id="bars"></div>
+      </div>
+      <div style="background:var(--fs-card);border:0.5px solid var(--color-border-tertiary);border-radius:10px;padding:14px">
+        <div style="font-size:13px;font-weight:600;color:var(--color-text-primary);margin-bottom:12px">⚠️ Alertes stock</div>
+        <div style="font-size:12px;color:var(--fs-gray);display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;justify-content:space-between;padding:8px;background:var(--color-background-secondary);border-radius:6px"><span>Robe Midi Bohème — Taille M</span><span style="color:#ef4444;font-weight:600">2 restants</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px;background:var(--color-background-secondary);border-radius:6px"><span>Chemise Oxford — Taille L</span><span style="color:#f59e0b;font-weight:600">5 restants</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px;background:var(--color-background-secondary);border-radius:6px"><span>Sneakers Air Max 42</span><span style="color:#ef4444;font-weight:600">0 — RUPTURE</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fs-bottom-nav">
+    <div class="fs-bottom-btn active" onclick="showView('home',null);setActiveNav(this)"><i class="ti ti-home" aria-hidden="true"></i><span>Accueil</span></div>
+    <div class="fs-bottom-btn" onclick="showView('shop',null);setActiveNav(this)"><i class="ti ti-search" aria-hidden="true"></i><span>Boutique</span></div>
+    <div class="fs-bottom-btn" onclick="showView('orders',null);setActiveNav(this)"><i class="ti ti-package" aria-hidden="true"></i><span>Commandes</span></div>
+    <div class="fs-bottom-btn" onclick="showView('admin',null);setActiveNav(this)"><i class="ti ti-chart-bar" aria-hidden="true"></i><span>Admin</span></div>
+    <div class="fs-bottom-btn"><i class="ti ti-user" aria-hidden="true"></i><span>Profil</span></div>
+  </div>
+</div>
+
+<script>
+const views=['home','shop','orders','admin'];
+const tabEls=document.querySelectorAll('.fs-tab');
+function showView(name,tabEl){
+  views.forEach(v=>{const el=document.getElementById('view-'+v);if(el)el.style.display=v===name?'block':'none'});
+  if(tabEl){tabEls.forEach(t=>t.classList.remove('active'));tabEl.classList.add('active')}
+}
+function setActiveNav(el){
+  document.querySelectorAll('.fs-bottom-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+}
+const months=['Jan','Fév','Mar','Avr','Mai','Jun','Jul','Aoû','Sep','Oct','Nov','Déc'];
+const vals=[820,940,880,1100,1050,1380,1200,980,1450,1600,1380,1900];
+const max=Math.max(...vals);
+const bars=document.getElementById('bars');
+months.forEach((m,i)=>{
+  const w=document.createElement('div');w.className='fs-bar-wrap';
+  const h=Math.round((vals[i]/max)*90)+10;
+  w.innerHTML=`<div class="fs-bar${i===4?' highlight':''}" style="height:${h}px"></div><div class="fs-bar-label">${m}</div>`;
+  bars.appendChild(w);
+});
+let s=22,m=37,h=4;
+function tick(){s--;if(s<0){s=59;m--;if(m<0){m=59;h--;if(h<0)h=23}}
+  document.getElementById('ts').textContent=String(s).padStart(2,'0');
+  document.getElementById('tm').textContent=String(m).padStart(2,'0');
+  document.getElementById('th').textContent=String(h).padStart(2,'0');
+}
+setInterval(tick,1000);
+</script>
